@@ -17,8 +17,9 @@ const roboto = Roboto({
 });
 
 export const metadata: Metadata = {
-  title: "Appwondo",
-  description: "Vereinsportal fuer Taekwondo",
+  title: "TKD Torgau - Vereinsportal",
+  description: "Vereinsportal des Traditional Taekwon-Do Black Belt Center Torgau",
+  icons: { icon: "/logo.png" },
 };
 
 export default function RootLayout({

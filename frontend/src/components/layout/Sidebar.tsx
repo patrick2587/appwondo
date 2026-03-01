@@ -51,19 +51,21 @@ export function Sidebar() {
   return (
     <aside
       className={cn(
-        "hidden md:flex flex-col border-r border-border bg-white transition-all duration-200",
+        "hidden md:flex flex-col bg-dark-charcoal transition-all duration-200",
         sidebarOpen ? "w-60" : "w-16"
       )}
     >
       {/* Logo */}
-      <div className="flex h-16 items-center border-b border-border px-4">
-        <Link href="/" className="flex items-center gap-2 overflow-hidden">
-          <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-primary text-white font-heading font-bold text-sm">
-            A
-          </div>
+      <div className="flex h-16 items-center border-b border-white/10 px-3">
+        <Link href="/" className="flex items-center gap-2.5 overflow-hidden">
+          <img
+            src="/logo.png"
+            alt="TKD Torgau"
+            className="h-9 w-9 shrink-0 rounded-full"
+          />
           {sidebarOpen && (
-            <span className="text-lg font-bold font-heading text-text-primary whitespace-nowrap">
-              Appwondo
+            <span className="text-sm font-bold font-heading text-white whitespace-nowrap">
+              TKD Torgau
             </span>
           )}
         </Link>
@@ -82,8 +84,8 @@ export function Sidebar() {
               className={cn(
                 "flex items-center gap-3 rounded-md px-3 py-2 text-sm font-medium transition-colors",
                 active
-                  ? "bg-primary/10 text-primary"
-                  : "text-text-secondary hover:bg-light-gray hover:text-text-primary"
+                  ? "bg-primary text-white"
+                  : "text-gray-400 hover:bg-white/10 hover:text-white"
               )}
               title={!sidebarOpen ? item.label : undefined}
             >
@@ -95,7 +97,7 @@ export function Sidebar() {
 
         {isAdmin && (
           <>
-            <div className="my-2 border-t border-border" />
+            <div className="my-2 border-t border-white/10" />
             {(() => {
               const Icon = adminItem.icon;
               const active = isActive(adminItem.href);
@@ -105,8 +107,8 @@ export function Sidebar() {
                   className={cn(
                     "flex items-center gap-3 rounded-md px-3 py-2 text-sm font-medium transition-colors",
                     active
-                      ? "bg-primary/10 text-primary"
-                      : "text-text-secondary hover:bg-light-gray hover:text-text-primary"
+                      ? "bg-primary text-white"
+                      : "text-gray-400 hover:bg-white/10 hover:text-white"
                   )}
                   title={!sidebarOpen ? adminItem.label : undefined}
                 >
@@ -120,10 +122,10 @@ export function Sidebar() {
       </nav>
 
       {/* Collapse toggle */}
-      <div className="border-t border-border p-2">
+      <div className="border-t border-white/10 p-2">
         <button
           onClick={toggleSidebar}
-          className="flex w-full items-center gap-3 rounded-md px-3 py-2 text-sm text-text-secondary transition-colors hover:bg-light-gray hover:text-text-primary"
+          className="flex w-full items-center gap-3 rounded-md px-3 py-2 text-sm text-gray-400 transition-colors hover:bg-white/10 hover:text-white"
           aria-label={sidebarOpen ? "Seitenleiste einklappen" : "Seitenleiste ausklappen"}
         >
           {sidebarOpen ? (

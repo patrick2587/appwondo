@@ -32,8 +32,8 @@ export function Topbar() {
   ];
 
   return (
-    <header className="flex h-16 items-center justify-between border-b border-border bg-white px-4">
-      {/* Left: Hamburger (mobile) + title */}
+    <header className="flex h-14 items-center justify-between border-b border-border bg-white px-4">
+      {/* Left: Hamburger (mobile) + logo/title */}
       <div className="flex items-center gap-3">
         <button
           onClick={toggleMobileNav}
@@ -43,9 +43,13 @@ export function Topbar() {
           <Menu className="h-5 w-5" />
         </button>
 
-        <h1 className="text-lg font-semibold font-heading text-text-primary hidden sm:block">
-          Appwondo
-        </h1>
+        {/* Mobile logo */}
+        <div className="flex items-center gap-2 md:hidden">
+          <img src="/logo.png" alt="TKD Torgau" className="h-8 w-8 rounded-full" />
+          <span className="text-sm font-bold font-heading text-text-primary">
+            TKD Torgau
+          </span>
+        </div>
       </div>
 
       {/* Right: User avatar dropdown */}

@@ -24,12 +24,17 @@ export default function DashboardPage() {
   return (
     <div className="space-y-6">
       <div>
-        <h1 className="text-2xl font-bold font-heading text-text-primary">
-          Willkommen, {user?.display_name || "Mitglied"}!
-        </h1>
-        <p className="mt-1 text-text-secondary">
-          Hier ist deine Vereins-Uebersicht.
-        </p>
+        <div className="flex items-center gap-3">
+          <img src="/logo.png" alt="" className="h-10 w-10 rounded-full hidden sm:block" />
+          <div>
+            <h1 className="text-2xl font-bold font-heading text-text-primary">
+              Willkommen, {user?.display_name || "Mitglied"}!
+            </h1>
+            <p className="mt-0.5 text-sm text-text-secondary">
+              TKD Black Belt Center Torgau
+            </p>
+          </div>
+        </div>
       </div>
 
       <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">

@@ -76,25 +76,27 @@ export function MobileNav() {
       />
 
       {/* Drawer */}
-      <nav className="absolute inset-y-0 left-0 w-72 bg-white shadow-lg">
+      <nav className="absolute inset-y-0 left-0 w-72 bg-dark-charcoal shadow-lg">
         {/* Header */}
-        <div className="flex h-16 items-center justify-between border-b border-border px-4">
+        <div className="flex h-16 items-center justify-between border-b border-white/10 px-4">
           <Link
             href="/"
             onClick={closeMobileNav}
-            className="flex items-center gap-2"
+            className="flex items-center gap-2.5"
           >
-            <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-primary text-white font-heading font-bold text-sm">
-              A
-            </div>
-            <span className="text-lg font-bold font-heading text-text-primary">
-              Appwondo
+            <img
+              src="/logo.png"
+              alt="TKD Torgau"
+              className="h-9 w-9 rounded-full"
+            />
+            <span className="text-sm font-bold font-heading text-white">
+              TKD Torgau
             </span>
           </Link>
 
           <button
             onClick={closeMobileNav}
-            className="rounded-md p-1 text-text-secondary transition-colors hover:bg-light-gray hover:text-text-primary"
+            className="rounded-md p-1 text-gray-400 transition-colors hover:bg-white/10 hover:text-white"
             aria-label="Navigation schliessen"
           >
             <X className="h-5 w-5" />
@@ -115,8 +117,8 @@ export function MobileNav() {
                 className={cn(
                   "flex items-center gap-3 rounded-md px-3 py-2.5 text-sm font-medium transition-colors",
                   active
-                    ? "bg-primary/10 text-primary"
-                    : "text-text-secondary hover:bg-light-gray hover:text-text-primary"
+                    ? "bg-primary text-white"
+                    : "text-gray-400 hover:bg-white/10 hover:text-white"
                 )}
               >
                 <Icon className="h-5 w-5 shrink-0" />
@@ -127,7 +129,7 @@ export function MobileNav() {
 
           {isAdmin && (
             <>
-              <div className="my-2 border-t border-border" />
+              <div className="my-2 border-t border-white/10" />
               {(() => {
                 const Icon = adminItem.icon;
                 const active = isActive(adminItem.href);
@@ -138,8 +140,8 @@ export function MobileNav() {
                     className={cn(
                       "flex items-center gap-3 rounded-md px-3 py-2.5 text-sm font-medium transition-colors",
                       active
-                        ? "bg-primary/10 text-primary"
-                        : "text-text-secondary hover:bg-light-gray hover:text-text-primary"
+                        ? "bg-primary text-white"
+                        : "text-gray-400 hover:bg-white/10 hover:text-white"
                     )}
                   >
                     <Icon className="h-5 w-5 shrink-0" />
