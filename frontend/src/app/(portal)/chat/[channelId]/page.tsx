@@ -61,9 +61,9 @@ export default function ChannelPage() {
     if (!ws) return;
 
     const unsubNewMessage = ws.on("new_message", (data: any) => {
-      if (data.message?.channel_id !== channelId) return;
+      if (data.channel_id !== channelId) return;
 
-      const newMessage: ChatMessage = data.message;
+      const newMessage: ChatMessage = data.payload;
 
       // Update query cache with the new message
       queryClient.setQueryData(
@@ -85,15 +85,15 @@ export default function ChannelPage() {
       );
     });
 
-    const unsubTyping = ws.on("typing", (data: any) => {
+    const unsubTyping = ws.on("user_typing", (data: any) => {
       if (data.channel_id !== channelId) return;
-      if (data.user_id === user?.id) return;
+      if (data.payload?.user_id === user?.id) return;
 
-      setTyping(channelId, data.user_name || data.user_id);
+      setTyping(channelId, data.payload?.user_name || data.payload?.user_id);
 
       // Clear typing after 3 seconds
       setTimeout(() => {
-        clearTyping(channelId, data.user_name || data.user_id);
+        clearTyping(channelId, data.payload?.user_name || data.payload?.user_id);
       }, 3000);
     });
 
